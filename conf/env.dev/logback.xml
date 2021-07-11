@@ -1,0 +1,13 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %level %logger - %msg \ (%file:%line\)%n</pattern>
+    </encoder>
+  </appender>
+  <root level="worn">
+    <appender-ref ref="STDOUT" />
+  </root>
+  <logger name="play"                             level="trace" />
+  <logger name="mvc.action"                       level="trace" />
+  <logger name="slick.jdbc.JdbcBackend.statement" level="trace" />
+</configuration>
