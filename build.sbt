@@ -49,7 +49,7 @@ import com.amazonaws.regions.{ Region, Regions }
 Ecr / region           := Region.getRegion(Regions.AP_NORTHEAST_1)
 Ecr / repositoryName   := "sample-ssr-api"
 Ecr / repositoryTags   := Seq(version.value, "latest")
-Ecr / localDockerImage := (packageName in Docker).value + ":" + (version in Docker).value
+Ecr / localDockerImage := (Docker / packageName).value + ":" + (Docker / version).value
 
 /** Setting sbt-release */
 import ReleaseTransformations._
