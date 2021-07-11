@@ -12,9 +12,13 @@ lazy val root = (project in file("."))
   .enablePlugins(DockerPlugin)
   .enablePlugins(EcrPlugin)
 
+val SLICK_VERSION = "3.3.3"
+
 libraryDependencies ++= Seq(
   guice,
-  "com.typesafe.slick" %% "slick" % "3.3.3",
+  "org.mariadb.jdbc"   %  "mariadb-java-client" % "2.7.3",
+  "com.typesafe.slick" %% "slick"               % SLICK_VERSION,
+  "com.typesafe.slick" %% "slick-hikaricp"      % SLICK_VERSION
 )
 
 scalacOptions ++= Seq(

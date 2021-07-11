@@ -7,9 +7,11 @@ import scala.concurrent.Future
 
 trait SlickDatabaseConfig {
 
-  private def db(replication: String): Database = Database.forConfig(s"slick.dbs.${replication}.db")
+  private lazy val masterDB: Database = Database.forConfig("slick.dbs.master")
+  private lazy val slaveDB:  Database = Database.forConfig("slick.dbs.slave")
 
-  def slickDBAction[R](replication: String)(action: DBIOAction[R, NoStream, Nothing]): Future[R] = db(replication).run(action)
+  def slickDBMasterAction[R](action: DBIOAction[R, NoStream, Nothing]): Future[R] = masterDB.run(action)
+  def slickDBSlaveAction[R](action: DBIOAction[R, NoStream, Nothing]):  Future[R] = slaveDB.run(action)
 }
 
 object SlickDatabaseConfig extends SlickDatabaseConfig
