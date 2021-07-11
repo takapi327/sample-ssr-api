@@ -7,10 +7,10 @@ ThisBuild / organizationName := "Takahiko Tominaga"
 
 ThisBuild / scalaVersion := "2.13.3"
 
-version := "1.0.0"
-
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
+  .enablePlugins(DockerPlugin)
+  .enablePlugins(EcrPlugin)
 
 scalacOptions ++= Seq(
   "-Xfatal-warnings",
@@ -34,3 +34,38 @@ Universal / javaOptions ++= Seq(
 )
 
 run / fork := true
+
+/**
+ * Setting for Docker Image
+ */
+Docker / maintainer         := "t.takapi0327+infra-sample-angular-ssr@gmail.com"
+dockerBaseImage             := "amazoncorretto:8"
+Docker / dockerExposedPorts := Seq(9000, 9000)
+Docker / daemonUser         := "daemon"
+
+/** setting AWS Ecr */
+import com.amazonaws.regions.{ Region, Regions }
+
+Ecr / region           := Region.getRegion(Regions.AP_NORTHEAST_1)
+Ecr / repositoryName   := "sample-ssr-api"
+Ecr / repositoryTags   := Seq(version.value, "latest")
+Ecr / localDockerImage := (packageName in Docker).value + ":" + (version in Docker).value
+
+/** Setting sbt-release */
+import ReleaseTransformations._
+
+releaseVersionBump := sbtrelease.Version.Bump.Bugfix
+
+releaseProcess := Seq[ReleaseStep](
+  ReleaseStep(state => Project.extract(state).runTask(Ecr / login, state)._1),
+  inquireVersions,
+  runClean,
+  setReleaseVersion,
+  ReleaseStep(state => Project.extract(state).runTask(Docker / publishLocal, state)._1),
+  ReleaseStep(state => Project.extract(state).runTask(Ecr / push, state)._1),
+  commitReleaseVersion,
+  tagRelease,
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)
