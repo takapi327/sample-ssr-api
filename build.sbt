@@ -13,7 +13,8 @@ lazy val root = (project in file("."))
   .enablePlugins(EcrPlugin)
 
 libraryDependencies ++= Seq(
-  guice
+  guice,
+  "com.typesafe.slick" %% "slick" % "3.3.3",
 )
 
 scalacOptions ++= Seq(
