@@ -18,7 +18,8 @@ libraryDependencies ++= Seq(
   guice,
   "org.mariadb.jdbc"   %  "mariadb-java-client" % "2.7.3",
   "com.typesafe.slick" %% "slick"               % SLICK_VERSION,
-  "com.typesafe.slick" %% "slick-hikaricp"      % SLICK_VERSION
+  "com.typesafe.slick" %% "slick-hikaricp"      % SLICK_VERSION,
+  "org.typelevel"      %% "cats-core"           % "2.0.0",
 )
 
 scalacOptions ++= Seq(
