@@ -1,6 +1,7 @@
 package domain.model.article
 
 import domain.value.Article
+import play.api.libs.json._
 
 case class SpecialArticle(
   microCMSContentId: String,
@@ -8,4 +9,7 @@ case class SpecialArticle(
   body:              String
 ) extends Article
 
-object SpecialArticle {}
+object SpecialArticle {
+  implicit val reads = Json.reads[SpecialArticle]
+  implicit val writes = Json.writes[SpecialArticle]
+}
