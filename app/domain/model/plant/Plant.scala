@@ -3,7 +3,8 @@ package domain.model.plant
 import Plant.Category._
 case class Plant(
   name:     String,
-  category: Category
+  category: Category,
+  price:    Int
 )
 
 object Plant {
