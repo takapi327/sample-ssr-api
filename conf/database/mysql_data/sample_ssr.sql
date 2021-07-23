@@ -1,0 +1,12 @@
+CREATE DATABASE `sample_ssr` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE `sample_ssr`
+
+DROP TABLE IF EXISTS `plant`;
+
+CREATE TABLE `plant` (
+  `id` BIGINT(64) unsigned NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `price` DECIMAL(10, 3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
