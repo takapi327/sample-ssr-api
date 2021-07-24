@@ -1,16 +1,14 @@
 version: '3'
 services:
   mysql:
-    image: mysql:5.7 # Setting for Other than M1 mac
-    #image: mysql/mysql-server:5.7 # Setting for M1 mac
-    platform: linux/amd64
+    image: mysql:5.7
+    platform: linux/amd64 # Setting for M1 mac
     environment:
       MYSQL_USER: 'takapi327'
       MYSQL_PASSWORD: 'takapi327'
       MYSQL_ROOT_PASSWORD: 'root'
-    #TZ: 'Asia/Tokyo'
     ports:
       - 13306:3306
     volumes:
-      - ./conf/database/mysql_data:/docker-entorypoint-initdb.d
+      - ./conf/database/mysql_data:/docker-entrypoint-initdb.d
       - ./conf/database/my.cnf:/etc/mysql/conf.d/my.cnf
