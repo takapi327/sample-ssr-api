@@ -1,9 +1,9 @@
 package domain.model.plant
 
 case class Plant(
-  id:    Long,
+  id:    Option[Long],
   name:  String,
-  price: Int
+  price: BigDecimal
 )
 
 object Plant
