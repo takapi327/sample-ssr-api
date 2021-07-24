@@ -10,3 +10,10 @@ CREATE TABLE `plant` (
   `price` DECIMAL(10, 3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `plant` WRITE;
+INSERT INTO `plant` VALUES (1, 'ガジュマル', 1800);
+INSERT INTO `plant` VALUES (2, 'モンステラ', 2800);
+INSERT INTO `plant` VALUES (3, 'ハエトリソウ', 3800);
+INSERT INTO `plant` VALUES (4, 'ウツボカヅラ', 4800);
+INSERT INTO `plant` VALUES (5, 'アロマカティス', 5800);
