@@ -1,6 +1,6 @@
 CREATE DATABASE `sample_ssr` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE `sample_ssr`
+USE `sample_ssr`;
 
 DROP TABLE IF EXISTS `plant`;
 
