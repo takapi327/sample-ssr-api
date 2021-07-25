@@ -77,7 +77,7 @@ class GetAllArticleController @Inject()(implicit
                     BadRequest(Json.toJson(
                       JsValueAPIError(
                         message = "Illegal value was detected in the transmitted data",
-                        detail = Some(JsError.toJson(error))
+                        detail  = Some(JsError.toJson(error))
                       )
                     ))
                   }
