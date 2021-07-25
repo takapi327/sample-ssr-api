@@ -8,7 +8,5 @@ trait SlickResourceProvider[P <: JdbcProfile] {
 
   object PlantTable extends PlantTable
 
-  lazy val tables = Seq(
-    PlantTable
-  )
+  lazy val plantTable = PlantTable.query
 }
