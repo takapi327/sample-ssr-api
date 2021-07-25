@@ -1,4 +1,4 @@
-package interfaceAdapter.controllers
+package controllers
 
 import javax.inject.Inject
 import play.api.mvc._
@@ -10,5 +10,5 @@ class ApplicationController @Inject()(implicit
   /**
    * Health check for AWS ALB
    */
-  def healthcheck = Action { Ok("ok") }
+  def healthCheck = Action { Ok("ok") }
 }

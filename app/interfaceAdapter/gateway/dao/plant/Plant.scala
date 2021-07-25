@@ -22,10 +22,6 @@ case class PlantTable[P <: JdbcProfile]()(
     def name  = column[String]     ("name")
     def price = column[BigDecimal] ("price")
 
-    type TableElementTuple = (
-      Option[Long], String, String
-    )
-
     def * = (
       id.?, name, price
     ) .<> (
