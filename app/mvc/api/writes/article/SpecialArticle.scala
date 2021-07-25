@@ -13,7 +13,7 @@ case class JsValueSpecialArticle(
   plant:             JsValuePlant
 )
 
-object SpecialArticle {
+object JsValueSpecialArticle {
   implicit val writes = Json.writes[JsValueSpecialArticle]
 
   def build(
