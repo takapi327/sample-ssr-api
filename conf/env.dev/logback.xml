@@ -4,10 +4,10 @@
       <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %level %logger - %msg \ (%file:%line\)%n</pattern>
     </encoder>
   </appender>
-  <root level="worn">
+  <root level="warn">
     <appender-ref ref="STDOUT" />
   </root>
   <logger name="play"                             level="trace" />
-  <logger name="mvc.action"                       level="trace" />
-  <logger name="slick.jdbc.JdbcBackend.statement" level="trace" />
+  <logger name="mvc.action"                       level="debug" />
+  <logger name="slick.jdbc.JdbcBackend.statement" level="debug" />
 </configuration>

@@ -16,10 +16,11 @@ val SLICK_VERSION = "3.3.3"
 
 libraryDependencies ++= Seq(
   guice,
-  "org.mariadb.jdbc"   %  "mariadb-java-client" % "2.7.3",
-  "com.typesafe.slick" %% "slick"               % SLICK_VERSION,
-  "com.typesafe.slick" %% "slick-hikaricp"      % SLICK_VERSION,
-  "org.typelevel"      %% "cats-core"           % "2.0.0",
+  "org.mariadb.jdbc"   %  "mariadb-java-client"  % "2.7.3",
+  "mysql"              %  "mysql-connector-java" % "6.0.6",
+  "com.typesafe.slick" %% "slick"                % SLICK_VERSION,
+  "com.typesafe.slick" %% "slick-hikaricp"       % SLICK_VERSION,
+  "org.typelevel"      %% "cats-core"            % "2.0.0",
 )
 
 scalacOptions ++= Seq(
@@ -36,7 +37,7 @@ scalacOptions ++= Seq(
 
 javaOptions ++= Seq(
   "-Dconfig.file=conf/env.dev/application.conf",
-  "-Dconfig.file=conf/env.dev/logback.xml"
+  "-Dlogger.file=conf/env.dev/logback.xml"
 )
 
 Universal / javaOptions ++= Seq(
