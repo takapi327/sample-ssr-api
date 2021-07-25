@@ -2,8 +2,10 @@ package interfaceAdapter.controllers.plant
 
 import javax.inject._
 import play.api.mvc._
+import play.api.libs.json.Json
 
 import mvc.lib.ExtensionMethods
+import mvc.api.writes.plant.JsValuePlant
 import interfaceAdapter.gateway.repository.plant.onMySQL.PlantRepository
 
 class GetPlantController @Inject()(implicit
@@ -15,7 +17,9 @@ class GetPlantController @Inject()(implicit
     for {
       Some(plant) <- PlantRepository.getById(id)
     } yield {
-      Ok(s"ID: ${plant.id}, Name: ${plant.name}, price: ${plant.price.toInt}")
+      Ok(Json.toJson(
+        JsValuePlant.build(plant)
+      ))
     }
   }
 }
