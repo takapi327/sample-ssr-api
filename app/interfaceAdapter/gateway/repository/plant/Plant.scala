@@ -16,9 +16,7 @@ case class PlantRepository[P <: JdbcProfile]()(
 
   import profile.api._
 
-  val plantTable = PlantTable.query
-
-  def get(id: Long): Future[Option[Plant]] = {
+  def getById(id: Long): Future[Option[Plant]] = {
     slickDBSlaveAction {
       plantTable.uniqueId(id).result.headOption
     }
