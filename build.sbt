@@ -15,6 +15,7 @@ lazy val root = (project in file("."))
 val SLICK_VERSION = "3.3.3"
 
 libraryDependencies ++= Seq(
+  ws,
   guice,
   "org.mariadb.jdbc"   %  "mariadb-java-client"  % "2.7.3",
   "mysql"              %  "mysql-connector-java" % "6.0.6",
