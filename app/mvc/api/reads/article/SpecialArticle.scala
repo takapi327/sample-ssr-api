@@ -1,14 +1,13 @@
-package mvc.api.article
+package mvc.api.reads.article
 
 import play.api.libs.json._
 
-case class SpecialArticle(
+case class JsValueSpecialArticle(
   microCMSContentId: String,
   title:             String,
   body:              String
 )
 
 object SpecialArticle {
-  implicit val reads  = Json.reads[SpecialArticle]
-  implicit val writes = Json.writes[SpecialArticle]
+  implicit val reads = Json.reads[JsValueSpecialArticle]
 }
