@@ -1,0 +1,2 @@
+
+GET /plant/$id<[0-9]+> interfaceAdapter.controllers.plant.GetPlantController.getById(id: Long)

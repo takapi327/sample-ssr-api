@@ -1,2 +1,4 @@
 
-GET /healthcheck interfaceAdapter.controllers.ApplicationController.healthcheck
+-> /api sub.api.Routes
+
+GET /healthcheck interfaceAdapter.controllers.ApplicationController.healthCheck
