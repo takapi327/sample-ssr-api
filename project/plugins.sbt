@@ -1,4 +1,5 @@
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.7.5")
+//addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.7.5")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.1+1561-87d91396+20220416-1534-SNAPSHOT")
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.7.6")
 addSbtPlugin("com.mintbeans" % "sbt-ecr" % "0.15.0")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.13")

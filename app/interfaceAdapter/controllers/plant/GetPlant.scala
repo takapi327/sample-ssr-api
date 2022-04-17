@@ -22,4 +22,8 @@ class GetPlantController @Inject()(implicit
       ))
     }
   }
+
+  def user(user: mvc.util.User) = Action {
+    Ok(Json.obj("id" -> user.id, "name" -> user.name))
+  }
 }

@@ -11,6 +11,7 @@ lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .enablePlugins(DockerPlugin)
   .enablePlugins(EcrPlugin)
+  .settings(routesImport += "mvc.util.Binder._")
 
 val SLICK_VERSION = "3.3.3"
 

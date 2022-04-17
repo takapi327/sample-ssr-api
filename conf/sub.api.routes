@@ -2,3 +2,6 @@
 GET /plant/$id<[0-9]+> interfaceAdapter.controllers.plant.GetPlantController.getById(id: Long)
 
 GET /article/plant     interfaceAdapter.controllers.article.GetAllArticleController.getAll
+
+GET /user/:user        interfaceAdapter.controllers.plant.GetPlantController.user(user: mvc.util.User)
+GET /user              interfaceAdapter.controllers.plant.GetPlantController.user(user: mvc.util.User)
